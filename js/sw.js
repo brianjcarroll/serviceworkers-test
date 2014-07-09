@@ -5,3 +5,5 @@
     console.log('This browser supports service workers.');
   }
 }());
+
+console.log('hey');
