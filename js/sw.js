@@ -1,20 +1,18 @@
 // service workers shit goes here.
 
-(function () {
-  if (navigator.serviceWorker) {
-    console.log('This browser supports service workers.');
-
-    navigator.serviceWorker.register(
-      'main.js',
-      'sw.js',
-      '../index.html',
-      '../css/main.css',
-      '../css/normalize.css',
-      '..normalize.min.css'
-    ).then(
-      function (sw) {
-        console.log(sw);
-      }
-    )
-  }
-}());
+if (navigator.serviceWorker) {
+  this.oninstall = function(event) {
+    event.waitUntil(
+      caches.create('static-v1').then(function(cache) {
+        return cache.add(
+          '/',
+          '/index.html',
+          '/js/main.js',
+          '/css/main.css',
+          '/css/normalize.css',
+          '/css/normalize.min.css'
+        );
+      })
+    );
+  };
+}
