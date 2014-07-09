@@ -1,3 +1,5 @@
-navigator.serviceWorker.register('sw.js', {
-  scope: '*'
-});
+(function () {
+  navigator.serviceWorker.register('sw.js', {
+    scope: '*'
+  });
+}());
