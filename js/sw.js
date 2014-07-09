@@ -15,4 +15,6 @@ if (navigator.serviceWorker) {
       })
     );
   };
+
+  console.log('hey');
 }
